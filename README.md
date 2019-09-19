@@ -1,21 +1,21 @@
 Apache Spark on Docker
 ==========
 
-[![DockerPulls](https://img.shields.io/docker/pulls/sequenceiq/spark.svg)](https://registry.hub.docker.com/u/sequenceiq/spark/)
-[![DockerStars](https://img.shields.io/docker/stars/sequenceiq/spark.svg)](https://registry.hub.docker.com/u/sequenceiq/spark/)
+[![DockerPulls](https://img.shields.io/docker/pulls/yb19891229/docker-spark.svg)](https://registry.hub.docker.com/u/yb19891229/docker-spark/)
+[![DockerStars](https://img.shields.io/docker/stars/yb19891229/docker-spark.svg)](https://registry.hub.docker.com/u/yb19891229/docker-spark/)
 
 
-This repository contains a Docker file to build a Docker image with Apache Spark. This Docker image depends on our previous [Hadoop Docker](https://github.com/sequenceiq/hadoop-docker) image, available at the SequenceIQ [GitHub](https://github.com/sequenceiq) page.
-The base Hadoop Docker image is also available as an official [Docker image](https://registry.hub.docker.com/u/sequenceiq/hadoop-docker/).
+This repository contains a Docker file to build a Docker image with Apache Spark. This Docker image depends on our previous [Hadoop Docker](https://github.com/yb19891229/hadoop-docker) image, available at the yb19891229 [GitHub](https://github.com/yb19891229) page.
+The base Hadoop Docker image is also available as an official [Docker image](https://registry.hub.docker.com/u/yb19891229/hadoop-docker/).
 
 ##Pull the image from Docker Repository
 ```
-docker pull sequenceiq/spark:1.6.0
+docker pull yb19891229/docker-spark:2.4.3
 ```
 
 ## Building the image
 ```
-docker build --rm -t sequenceiq/spark:1.6.0 .
+docker build --rm -t yb19891229/docker-spark:2.4.3 .
 ```
 
 ## Running the image
@@ -24,16 +24,16 @@ docker build --rm -t sequenceiq/spark:1.6.0 .
 * in your /etc/hosts file add $(boot2docker ip) as host 'sandbox' to make it easier to access your sandbox UI
 * open yarn UI ports when running container
 ```
-docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox sequenceiq/spark:1.6.0 bash
+docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox yb19891229/docker-spark:2.4.3 bash
 ```
 or
 ```
-docker run -d -h sandbox sequenceiq/spark:1.6.0 -d
+docker run -d -h sandbox yb19891229/docker-spark:2.4.3 -d
 ```
 
 ## Versions
 ```
-Hadoop 2.6.0 and Apache Spark v1.6.0 on Centos
+Hadoop 2.6.0 and Apache Spark v2.4.3 on Centos
 ```
 
 ## Testing
@@ -71,7 +71,7 @@ spark-submit \
 --driver-memory 1g \
 --executor-memory 1g \
 --executor-cores 1 \
-$SPARK_HOME/lib/spark-examples-1.6.0-hadoop2.6.0.jar
+$SPARK_HOME/lib/spark-examples-2.4.3-hadoop2.6.0.jar
 ```
 
 Estimating Pi (yarn-client mode):
@@ -84,7 +84,7 @@ spark-submit \
 --driver-memory 1g \
 --executor-memory 1g \
 --executor-cores 1 \
-$SPARK_HOME/lib/spark-examples-1.6.0-hadoop2.6.0.jar
+$SPARK_HOME/lib/spark-examples-2.4.3-hadoop2.6.0.jar
 ```
 
 ### Submitting from the outside of the container
